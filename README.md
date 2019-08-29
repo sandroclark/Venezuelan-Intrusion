@@ -1,12 +1,54 @@
 # Venezuelan-Intrusion
-Analysis and Topic Modeling of Banned Venezuelan Twitter Accounts
-(Draft)
+by James Clark
 
-1. High Level Description of Project(motivation,goals,etc):
+## Analysis of Banned Venezuelan Twitter Accounts
 
-For the past 5 years as Data Science has taken the world by storm I gained appreciation for Data Science as analytical tool in Political Science. My 'meta' goal for this project was to to use modeling techniques such as LDA and NMF as well NLP to interpret something of importance in our Democracy, in this case that is utilization of twitter as means of affecting public mood and perception. Twitter releases datasets of banned accounts and my goal was for this project was to peform EDA,Modeling,Sentiment Analysis infer what Venezuela's intentions were, who they were they supporting, where were they tweeting from, and the reach of their tweets.
 
-2. EDA:
+# Table of Contents
+- [Introduction](#Introduction)
+- [Data Overview](#Data-Overview)
+- [EDA](#EDA)
+- [Data Pipeline](#Data-Pipeline)
+- [Model-Selection](#Model-Selection)
+- [Emotional Analysis](#Emotional-Analysis)
+- [Wordclouds](#WordClouds)
+- [Conclusion and Next Steps](#Conclusion-and-Next-Steps)
+
+
+## Introduction
+As machine learning takes the world by storm the negative consequences of adversarial machine learning more apparent. This project  utilizes Twitter's Dataset to examine the role and scope of Venezuelan interference in the '16 and '18 elections. 
+
+#### Goal:
+- Ascertain if Venezuela attempted to interfere in our elections.
+- Understand the impact and nature of Venezuelan interference.
+- Create visualizations to make impact better understood.
+- Implement Sentiment Analysis on Tweets.
+- Unsupervised Learning: Use LDA to derive latent topic. 
+- Supervised Learning: Utilize classification Algorithms to identify how many actors are active in this campaign.
+
+
+#### Motivation:
+A major source of interest of mine is Political Science. I believe that High Tech can potentially make our society more Democratic, but also has the potential to undermine Democracies. By understanding these threats we can create greater protective measures to strengthen representative governments.
+
+## Data Overview
+
+#### First Dataset:
+##### Twitter's Elections Integrity Dataset:
+Collection of Tweets from Venezuelan accounts connected to state-sponsored disinformation campaigns.
+- There are a half million tweets.
+- Two Datasets: One dealing with tweets, the other with users.
+- 33 Different Users.
+
+
+#### Second Dataset:
+
+##### [Emotions Sensor Data Set](https://www.kaggle.com/iwilldoit/emotions-sensor-data-set). 
+- Contains over 21000 unique English words classified into 7 basic emotions: Disgust, Surprise, Neutral, Anger, Sad, Happy and Fear. 
+- labeled using _Andbrain_(published on Kaggle) engine from over 1,185,540 classified words, blogs, tweets and sentences.
+
+
+
+## EDA:
 
 FEATURE ENGINEERING:
 
@@ -39,9 +81,31 @@ For Sentiment Analysis Series I used a count vector. With vocab being the emotio
 
 During the peak tweeting periods the observable emotions are fear, surprise, anger.
 (insert graph here)
-3.
 
-MODELING:
+## Data Pipeline
+1.1.Words were lemmatized, stemmed. Punctuation removed. 
+In linguistic morphology and information retrieval in **lemmatization** we are removing word endings to get to our target, the base or dictionary form of a word.  <br/>
+Kittens - kitten, better - good, walking  - walk. <br/>
+
+1.2. Stemming, the process of reducing inflected (or sometimes derived) words to their word stem, base or root form: <br/>
+cats, catlike, and catty, cat ---> cat <br/>
+
+`lemmer = WordNetLemmatizer()` <br/>
+
+`stemmer = SnowballStemmer('english')` <br/>
+
+1.3. Stop words. Noise. <br/>
+Standard stop words library from nltk was used. <br/>
+`stop_words = set(nltk.corpus.stopwords.words('english'))` <br/>
+
+1.4 In addition the least meaningful words were arbitrary removed by the author using [**google trends**](https://trends.google.com/trends) and human comprehension. 
+additional stopwords list (_developing_) in add_stop_words.py
+
+1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
+`pip instal tweet-preprocessor`
+
+
+# Model Selection:
 
 The modeling methods I used were LDA and NMF. I utilized LDA four different ways: Simple Skilearn method, Grid search, Gensim, and LDA mallet. 
 
@@ -73,11 +137,8 @@ SUMMARY OF FEATURE ENGINEERING:
 
 These accounts had decent reach with 20% of accounts having upwards of 4k followers. Although median retweet was value was 1, 217 tweets had 100x this amount of retweets and 4 having over 1k retweets.
 
-CONTEXT OF THIS DATASET WITH PREVIOUS VENEZUELA DATASET:
 
-This dataset was had less spanish tweets, and its locations were predominantly stated to be in the States. It can thus be inferred that these accounts were not for a domestic targets like previous dataset. The tweets were quite clearly targeting Americans. All topics were right political in nature and right wing and mostly 'negative'. The peak tweet volume occurred precisely in early november. It is quite surprising that both Venezuela and Russia were taking part in the same activities on the same side. It is however curious to me that the tweets supported Trump so much, since Trump is no friend of Maduro's govt. It leads me to think that Maduro didn't think Trump was much of a threat, and is instead sought to gin up American division by propping up toxic right wing ideology. 
-
-FINAL THOUGHTS/FUTURE WORK:
+# Conclusion and Next Steps
 
 This project was really fun and informative for me because I was able to learn about Venezuelan interference on the side of Trump in the '16 election. This is information that is not widely known. After doing this project, I look at viral partisan posts in a different light, how many of likes on some of these posts are fake?
 
