@@ -8,10 +8,7 @@ from nltk.stem.snowball import SnowballStemmer
 import string
 string.punctuation
 
-# In this edit I didn't remove # and @ hoping to find the way to remove it together with the followings
-punct = set(string.punctuation)
-punct.remove('@')
-punct.remove('#')
+
 
 
 
@@ -21,15 +18,7 @@ punct.remove('#')
 lemmer = WordNetLemmatizer()
 stemmer = SnowballStemmer('english')
 
-
-### STOP WORDS --  combining w/custom list of most frequently used and uninformative words (see news_stop_words)
-stop_words = set(nltk.corpus.stopwords.words('english')) 
-
-### I HAVE THIS INSIDE THE FUNCTION AS WELL, NEED TO TEST IF WORKS IF REMOVE FROM HERE
-new_stop_words = {'rt', 'hey' 'via', 'new', 'time', 'today', 'one', 'say', 'get', 'go', 
-                  'im', 'know', 'need', 'made', 'https', 'http', 'that', 'would', 
-                  'take', 'your', 'two', 'yes', 'back', 'look', 'see', 'amp', 'tell',
-                  'give', 'httpst', 'htt', 'use', 'dont', 'thing', 'man', 'thank', 'lol', 'cc', 'agre' }
+ 'agre' }
 
 import preprocessor as p
 import re
@@ -122,3 +111,53 @@ def clean_tweet_text(text_column):
     
     # changed docs stemmed to docs lemmatized
     return bag, bow, docs_lemmatized, full_service_docs_series
+
+
+def user_lexical_diversity(tweets_vec):
+    tokens = grab_user_tweets(tweets_vec)  
+    if len(tokens) == 0:
+        return 0 
+    return len(set(tokens))/len(tokens)
+
+def filter_tokens(sent):
+    return([w for w in sent if not w in stopwords_ and not w in punctuation_])
+
+def grab_urls(tweet):
+    return [ word for word in tweet.split() \
+                    if word.startswith("http")]
+
+def get_bag_of_words(tweet):
+    return [ word for word in tweet.split() if not(word.startswith("http")) and not(word.startswith('#'))]
+
+def one_tweet_lexical_diversity(tweet):
+    def remove_symbols(word, symbol_set):
+        return ''.join(char for char in word 
+                        if char not in symbol_set)
+    
+    tokens =  [remove_symbols(word.lower(), punct) for word in tweet.split() 
+                            if not(word.startswith("http")) and not(word.startswith('#'))] 
+    
+    lex_div =  len(set(tokens))/len(tokens)
+    return lex_div
+
+def remove_symbols(word, symbol_set):
+    return ''.join(char for char in word 
+                    if char not in symbol_set)
+
+def grab_user_tweets(tweets_vec):
+    all_tokens = []
+    for tweet in tweets_vec:
+        tokens =  [remove_symbols(word.lower(), punct) for word in tweet.split() 
+                            if not(word.startswith("http")) and not(word.startswith('#'))] 
+        all_tokens += tokens
+    return all_tokens
+
+def preprocessing_text(text):
+    '''
+    INPUT: str
+    OUTPUT: str w/ emojies, urls, hashtags and mentions removed
+    '''
+    p.set_options(p.OPT.EMOJI, p.OPT.URL, p.OPT.HASHTAG, p.OPT.MENTION, p.OPT.NUMBER)
+    clean_text = p.clean(text)
+    
+    return clean_text
