@@ -58,9 +58,8 @@ Collection of Tweets from Venezuelan accounts connected to state-sponsored disin
 
 ## EDA:
 
-FEATURE ENGINEERING:
 
-Performing EDA on our data set revealed a few things. They are summarized by the graphs below:
+Performing EDA on the data set revealed a few things. They are summarized by the graphs below:
 
 |Location of Users|Tweets per User|
 |:---:|:---:|
@@ -157,16 +156,22 @@ We will use the following models:
 
 # Analysis of Tweet Emotions:
 
-The emotions Venezuela wanted us to feel were overwhelmingly negative, with 60 % of the emotions being registered being Fear, Surprise, Anger. A huge tweet spike occurred in the last quartile of 2016. This spike corresponds to the to the election of '16. Another spike of activity occurred in 2018 in the beginning of year (primary season) and another around the midterm election. 
-
-|LDA using Gridsearch|LDA using Gensim|
+|Tweet Volume by 7 basic emotions|Monthly Tweet volume|
 |:---:|:---:|
-|![](img/LDA_Sklearn.png)|![](img/LDA_Gensim.png)|
+|![](img/7_basic_emotions_timeseries.png)|![](img/Timeseries_by_Month.png)|
 
-|Optimized number of Topics|Word Cloud|
+|Optimized number of Topics|Tweet Volume peaks during '16 Election|
 |:---:|:---:|
-|![](img/Coherence_Score_By_Topics.png)|![](img/word_cloud.png)|
+|![](img/Emotions_Detected.png)|![](img/Tweet_Volume_Around_16_Election.png)|
 
+## Results:
+
+* A huge tweet spike occurred in the last quartile of 2016. This spike corresponds to the to the election of '16.  
+* Another spike of activity occurred in 2018 in the beginning of year (primary season) and another around the midterm election.
+
+* The emotions Venezuela wanted us to feel were overwhelmingly negative, with 60 % of the emotions being registered being Fear, Surprise, Anger. 
+
+<a href="#Venezuelan-Intrusion">Back to top</a>
 
 
 # Conclusion and Next Steps
@@ -174,8 +179,6 @@ The emotions Venezuela wanted us to feel were overwhelmingly negative, with 60 %
 - Took the datasets and performed Exploratory Data Analysis
 - Created a data pipeline
 - Built several models and picked support vector machine with stochastic gradient descent due to it's high accuracy and precision
-- Built a Neural Network which improved gave great accuracy but was overfit to the over represnted classes
-- Performed emotional analysis for each personality type
 - Created Word Clouds based on the frequancy of words used by each personality type.
 - Next step would be to gather data from another place like twitter or facebook and see if we can predict personalities based on that text
 
