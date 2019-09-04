@@ -93,7 +93,7 @@ Standard stop words library from nltk was used. <br/>
 The code to do this can be found [here](src/text_preprocessor_functions.py)
 
 
-![](img/Nlp_Pipeline.png)
+![](img/NLP_Pipeline.png)
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
 # Analysis of Tweets with Sentiment Analysis:
@@ -113,6 +113,7 @@ The code to do this can be found [here](src/text_preprocessor_functions.py)
 
 * The emotions Venezuela wanted us to feel were overwhelmingly negative, with 60 % of the emotions being registered being Fear, Surprise, Anger. 
 
+For further Tweet Analysi please look at the summary [here](TweetAnalysis.md)
 
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
@@ -153,6 +154,9 @@ We will use the following models:
 - Naive Bayes                   - Accuracy = 0.22051479062620052
 - Logistic Regression           - Accuracy = 0.6300422589320015
 - Support Vector Machine        - Accuracy = 0.6699961582789089
+
+The code for this can be found [here](NLP_Models.ipynb)
+
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
 |
