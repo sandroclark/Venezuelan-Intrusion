@@ -108,12 +108,12 @@ The code to do this can be found [here](src/text_preprocessor_functions.py)
 
 ## Results:
 
-* A huge tweet spike occurred in the last quartile of 2016. This spike corresponds to the to the election of '16.  
+* A huge tweet spike occurred in the last quartile of 2016. This spike corresponds to  the election of '16.  
 * Another spike of activity occurred in 2018 in the beginning of year (primary season) and another around the midterm election.
 
-* The emotions Venezuela wanted us to feel were overwhelmingly negative, with 60 % of the emotions being registered being Fear, Surprise, Anger. 
+* It appears the tweet content of the banned accounts was mostly negative, with 60 % of the emotions counted as Fear, Surprise, Anger. 
 
-For further Tweet Analysi please look at the summary [here](TweetAnalysis.md)
+For further Tweet Analysis please look at the summary [here](TweetAnalysis.md)
 
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
@@ -127,7 +127,7 @@ For further Tweet Analysi please look at the summary [here](TweetAnalysis.md)
 |![](img/LDA_Sklearn.png)|![](img/LDA_Gensim.png)|
 
 |Optimized number of Topics|
-|:---:|:---:|
+|:---:|
 |![](img/optimal_coherence.png)|
 
 The modeling methods I used were LDA and NMF. I utilized LDA four different ways: Simple Skilearn method, Grid search, Gensim, and LDA mallet. 
