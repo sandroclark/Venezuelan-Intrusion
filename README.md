@@ -65,7 +65,7 @@ Performing EDA on the data set revealed a few things. They are summarized by the
 |:---:|:---:|
 |![](img/Account_Language_fixed.png)|![](img/Language_in_Tweets_fixed.png)|
 
-For further EDA please look at the summary [here](ExploratoryDataAnalysis.md)
+For further EDA please look at the summary [here](ExploratoryDataAnalysis.ipynb)
 
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
@@ -113,7 +113,7 @@ The code to do this can be found [here](src/text_preprocessor_functions.py)
 
 * It appears the tweet content of the banned accounts was mostly negative, with 60 % of the emotions counted as Fear, Surprise, Anger. 
 
-For further Tweet Analysis please look at the summary [here](TweetAnalysis.md)
+For further Tweet Analysis please look at the summary [here](TweetAnalysis.ipynb)
 
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
@@ -143,19 +143,26 @@ All topics were Political. All were charged. Most mentioned Trump. Some models h
 ![](img/3_topics.png)
 
 
-The code for this can be found [here](NLP_Models.ipynb)
+The code for this can be found [here](Topic_Modeling.ipynb)
 
-## Supervised
-Went through different machine learning algorithms in order to find a model that can predict the personalities. Random would be 1/16 or 0.0625. That is really low, so for our model let's aim to achiece results higher than 50%. The code for this can be found [here](NLP_Models.ipynb)
+## Predicting Users
+While exploring the Data I noticed many usernames were extremely similar. Such as: LaurenJonesGOP_ vs. LaurenJonesGOP , and DTrumpTrain_ vs. TrumpTrainNewss
+I decided to use the following models to attempt to classify them based on tweets to see whether or not users were the same or not:
 
-We will use the following models:
-- Random Forest                 - Accuracy = 0.3614985590778098
-- Gradient Boosting Classifier  - Accuracy = 0.650787552823665
-- Naive Bayes                   - Accuracy = 0.22051479062620052
-- Logistic Regression           - Accuracy = 0.6300422589320015
-- Support Vector Machine        - Accuracy = 0.6699961582789089
+- Random Forest                
+- Gradient Boosting Classifier 
+- Naive Bayes Classifier                  
+- Logistic Regression           
+        
+Random Forest and Gradient Boosting Classifiers (ensemble models) performed the best across the board. 
 
-The code for this can be found [here](NLP_Models.ipynb)
+|Least Accurate Confusion Matrix @ 49 %|Most Accurate Confusion Matrix @ 64 %|
+|:---:|:---:|
+|![](img/NB_TrumpNComp.png)|![](img/Trump_Train_comp.png)|
+
+One experiment betweeen 2 models named Trumpnews could not be classified with an accuracy greater than 50%, while two similarly named banned account called Trump Train could be accurately predicted with an accuracy up to 64%.
+
+The code for this can be found [here](User_Predictor.ipynb)
 
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
