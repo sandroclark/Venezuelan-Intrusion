@@ -93,7 +93,7 @@ Standard stop words library from nltk was used. <br/>
 The code to do this can be found [here](src/text_preprocessor_functions.py)
 
 
-![](img/NLP_Pipeline.png)
+![](img/Nlp_Pipeline.png)
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
 # Analysis of Tweets with Sentiment Analysis:
