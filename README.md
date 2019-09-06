@@ -48,7 +48,7 @@ Collection of Tweets from Venezuelan accounts connected to state-sponsored disin
 
 ##### [Emotions Sensor Data Set](https://www.kaggle.com/iwilldoit/emotions-sensor-data-set) 
 - Contains over 21000 unique English words classified into 7 basic emotions: Disgust, Surprise, Neutral, Anger, Sad, Happy and Fear. 
-- labeled using _Andbrain_(published on Kaggle) engine from over 1,185,540 classified words, blogs, tweets and sentences.
+- Labeled using _Andbrain_(published on Kaggle) engine from over 1,185,540 classified words, blogs, tweets and sentences.
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
 
@@ -111,7 +111,7 @@ The code to do this can be found [here](src/text_preprocessor_functions.py)
 * A huge tweet spike occurred in the last quartile of 2016. This spike corresponds to  the election of '16.  
 * Another spike of activity occurred in 2018 in the beginning of year (primary season) and another around the midterm election.
 
-* It appears the tweet content of the banned accounts was mostly negative, with 60 % of the emotions counted as Fear, Surprise, Anger. 
+* It appears the tweet content of the banned accounts is mostly negative, with 60 % of the emotions counted as Fear, Surprise, Anger. 
 
 For further Tweet Analysis please look at the summary [here](TweetAnalysis.ipynb)
 
@@ -166,18 +166,14 @@ The code for this can be found [here](User_Predictor.ipynb)
 
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
-|
+
 
 # Conclusion and Next Steps
 
 - Took the datasets and performed Exploratory Data Analysis
-- 
-- Built several models and picked support vector machine with stochastic gradient descent due to it's high accuracy and precision
-- Created Word Clouds based on the frequancy of words used by each personality type.
-- Next step would be to gather data from another place like twitter or facebook and see if we can predict personalities based on that text
+-  Using Sentiment analysis, Time stamps, and language of Corpus it can be inferred that Venezuela was targeting Americans.
+- Built several models to classify different users 
+- Next step would be to do more feature engineering such as: # of words, punctuation, and spelling to see if I can better predict how many different users were active in this misinformation campaign.
 
-This project was really fun and informative for me because I was able to learn about Venezuelan interference on the side of Trump in the '16 election. This is information that is not widely known. After doing this project, I look at viral partisan posts in a different light, how many of likes on some of these posts are fake?
-
-I'd love to continue using Data Science to explore topics relating politics.
 
 <a href="#Venezuelan-Intrusion">Back to top</a>
